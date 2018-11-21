@@ -23,6 +23,7 @@ namespace RoomChat.Views
             btniniciarchatwatson.Clicked += btniniciarchatwatson_Clicked;
         }
 
+
         async void btniniciarchat_Clicked(object sender, EventArgs e)
         {
             string result;

@@ -1,0 +1,60 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomChat.CustomCells.TextInViewCellOption">
+  <ViewCell.View>
+      <StackLayout>
+            <Label Text="{Binding Text}" />
+            <Label Text="{Binding Description}" />
+
+            <ListView  ItemsSource="{Binding Options}" RowHeight="40">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                <Button Text="{Binding label}" Command="{Binding SendCommandOption}"  CommandParameter="{Binding finalvalue}"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>        
+          
+          
+            <!--<TableView Intent="Settings">
+                <TableRoot>
+                    <TableSection Title="Ring">
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal">
+                                <Image Source="logo.png" />
+                                <Label Text="left"
+                              TextColor="#f35e20" />
+                                <Label Text="right"
+                              HorizontalOptions="EndAndExpand"
+                              TextColor="#503026" />
+                            </StackLayout>
+                        </ViewCell>
+                        <SwitchCell Text="New Voice Mail" />
+                        <SwitchCell Text="New Mail" On="true" />
+                    </TableSection>
+                </TableRoot>
+            </TableView>-->
+
+
+            <!--<ListView  ItemsSource="{Binding Options}" RowHeight="80">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                                <Button Text="{Binding label}" />
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>-->
+
+            <Label FontSize="Micro"
+               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
+           
+        </StackLayout>
+  </ViewCell.View>
+</ViewCell>

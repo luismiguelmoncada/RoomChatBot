@@ -1,0 +1,243 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomChat.Views.test">
+
+
+    <RelativeLayout>
+        <ListView  x:Name="MessagesListView" 
+               
+                HasUnevenRows="True" 
+                SeparatorVisibility="None" 
+                IsEnabled="True"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.92,Constant=0}">
+        </ListView>
+        <Grid  x:Name="MessageControls" Padding="0"
+                BackgroundColor="#EFEFF4"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=.09,Constant=0}">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"></RowDefinition>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="3*"></ColumnDefinition>
+                <ColumnDefinition Width="*"></ColumnDefinition>
+            </Grid.ColumnDefinitions>
+            <Entry Grid.Column="0" Grid.Row="0"
+			    HorizontalOptions="FillAndExpand" 
+				Placeholder="Escribe tu mensaje" 
+                MinimumHeightRequest="515"
+                Margin="0"
+				Text="{Binding OutText}"/>
+            <Button Grid.Column="1" Grid.Row="0"
+				Text="Enviar" 
+				Command="{Binding SendCommand}"/>
+        </Grid>
+    </RelativeLayout>
+
+    <!--<Grid ColumnSpacing="2" Padding="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Grid.Column="1" Padding="7" BackgroundColor="#0535f0" CornerRadius="10">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+            </Frame.HasShadow>
+            <StackLayout>
+                <Label TextColor="White" Text="aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa" />
+            </StackLayout>
+        </Frame>
+
+        <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
+               Text="dddddddddddddd" TextColor="Gray"></Label>
+    </Grid>-->
+
+
+    <!--<Frame BackgroundColor="#CEE3F6" Padding="5" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
+            <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#0535f0" Padding="4" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="CenterAndExpand">
+                <Label Text="aaaaaaa" TextColor="White" VerticalOptions="StartAndExpand" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center"></Label>
+            </Frame>
+            <Label  Text="ddddddddddddddddddddddddddddddddddddddddddddddddddddddddddd" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+            <Image Source="https://www.ibmlearningcenter.com/wp-content/uploads/2018/02/IBM-Learning-Center-Food4.jpg" HeightRequest="140"/>
+            <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
+               Text="aaaaaaaaaaa" TextColor="Gray"></Label>
+        </StackLayout>
+    </Frame>-->
+
+
+
+
+    <!--<ScrollView>
+        <RelativeLayout x:Name="rrrrr" >
+
+            <ListView  x:Name="MessagesListView"
+               
+            ItemsSource="{Binding ListMessages}" 
+            HasUnevenRows="True" IsEnabled="True"
+              SeparatorVisibility="None"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+              RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.92,Constant=0}">
+
+            </ListView>
+
+
+            <Grid  x:Name="MessageControls" RowSpacing="1" ColumnSpacing="0" Padding="1"
+         BackgroundColor="#EFEFF4"
+         VerticalOptions="FillAndExpand"
+         HorizontalOptions="FillAndExpand"
+         RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=1,Constant=0}"
+         RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+         RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=.08,Constant=0}">
+
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                  
+                </Grid.ColumnDefinitions>
+
+
+                <StackLayout Orientation="Horizontal" Grid.Column="0" Grid.Row="0" BackgroundColor="White">
+
+                    <Entry 
+			    HorizontalOptions="FillAndExpand" 
+				HeightRequest="25" 
+				Placeholder="Escribe tu meensaje" 
+				Text="{Binding OutText}"/>
+                    <Button 
+				Text="Enviar" 
+				Command="{Binding SendCommand}"/>
+                   
+
+                </StackLayout>
+
+             
+                      </Grid>
+
+
+        </RelativeLayout>
+
+    </ScrollView>-->
+
+
+
+    <!--<TableView Intent="Settings">
+        <TableRoot>
+            <TableSection Title="Tituloooo" >
+                <ViewCell IsEnabled="False">
+                    <Label Text="Descripcion de las opciones"
+                              HorizontalOptions="CenterAndExpand"
+                              TextColor="#503026" />
+                </ViewCell>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="left"
+                              TextColor="#f35e20" />
+                        <Label Text="right"
+                              HorizontalOptions="EndAndExpand"
+                              TextColor="#503026" />
+                    </StackLayout>
+                </ViewCell>
+                --><!--<SwitchCell Text="New Voice Mail" />
+                <SwitchCell Text="New Mail" On="true" />--><!--
+            </TableSection>
+        </TableRoot>
+    </TableView>-->
+
+    <!--<Frame BackgroundColor="#CEE3F6" Padding="5" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
+    <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
+            <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#0535f0" Padding="4" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="CenterAndExpand">
+                <Label Text="Puntos 3" TextColor="White" VerticalOptions="StartAndExpand" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center"></Label>
+            </Frame>
+            <Label  Text="Descripcion dddddddddf fvgffffffffff fvvvvvvvvvvvvv" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+            <Image Source="https://www.ibmlearningcenter.com/wp-content/uploads/2018/02/IBM-Learning-Center-Food4.jpg" />
+
+            <Label FontSize="Micro"
+               Text="fecah" TextColor="Gray"></Label>
+        </StackLayout>
+    </Frame>-->
+
+    <!--<Frame BackgroundColor="Gray" Padding="2" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
+        <Grid Padding="0">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto" />
+                <RowDefinition Height="*" />
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1.5*"/>                
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <Frame   BackgroundColor="White" Padding="2"  IsClippedToBounds="False" VerticalOptions="FillAndExpand" CornerRadius="15" HorizontalOptions="FillAndExpand">
+
+                <Image 
+                                    Source="https://www.ibmlearningcenter.com/wp-content/uploads/2018/02/IBM-Learning-Center-Food4.jpg"
+                                    VerticalOptions="FillAndExpand"
+                                    HorizontalOptions="FillAndExpand"
+                                    WidthRequest="300"
+                                    HeightRequest="300">
+                </Image>
+            </Frame>            
+
+            <StackLayout Grid.Row="0" Grid.Column="1" Padding="2" >
+                <Frame BackgroundColor="#F8715B" Padding="4" Margin="3,0,3,0" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="3" HorizontalOptions="CenterAndExpand">
+                    <Label Text="Predicción" TextColor="Black" FontAttributes="Bold" HorizontalTextAlignment="Center"></Label>
+                </Frame>
+                <Label Text="dfsssssssssssssssssssssssssssssssss" TextColor="Black" HorizontalTextAlignment="Center"></Label>
+            </StackLayout>
+
+            <Label FontSize="Micro" Grid.Row="1" Grid.Column="0" 
+               Text="fechaaaaaaaaaaaaa" TextColor="White"></Label>
+            
+        </Grid>
+        
+    </Frame>-->
+
+
+    <!--<Grid ColumnSpacing="2" Padding="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Grid.Column="1" Padding="4" BackgroundColor="Gray" CornerRadius="15">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+            </Frame.HasShadow>
+            <StackLayout>
+                <Label TextColor="White" Text="ffffffffffffffffff" />
+                <Image
+                                    Source="https://www.ibmlearningcenter.com/wp-content/uploads/2018/02/IBM-Learning-Center-Food4.jpg"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="300"
+                                    HeightRequest="300">
+                </Image>
+            </StackLayout>
+        </Frame>
+
+        <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
+               Text="fechaaaaaaaaaaaaa" TextColor="Gray"></Label>
+
+      
+    </Grid>-->
+    
+</ContentPage>

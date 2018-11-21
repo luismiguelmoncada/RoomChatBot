@@ -1,0 +1,90 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:RoomChat.CustomCells"
+             x:Class="RoomChat.Views.Chat">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:SelectorDataTemplate x:Key="MessageTemplateSelector"/>
+        </ResourceDictionary>
+    </ContentPage.Resources>   
+        <RelativeLayout>
+        <ListView  x:Name="MessagesListView" 
+                ItemTemplate="{StaticResource MessageTemplateSelector}" 
+                ItemsSource="{Binding ListMessages}" 
+                HasUnevenRows="True" 
+                SeparatorVisibility="None" 
+                IsEnabled="True"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.92,Constant=0}">
+        </ListView>
+        <Grid  x:Name="MessageControls" Padding="0"
+                BackgroundColor="#EFEFF4"
+                VerticalOptions="FillAndExpand"
+                HorizontalOptions="FillAndExpand"
+                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=1,Constant=0}"
+                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
+                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=.09,Constant=0}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"></RowDefinition>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="3*"></ColumnDefinition>
+                    <ColumnDefinition Width="*"></ColumnDefinition>
+                </Grid.ColumnDefinitions>
+                    <Entry Grid.Column="0" Grid.Row="0"
+			    HorizontalOptions="FillAndExpand" 
+				Placeholder="Escribe tu meensaje" 
+                MinimumHeightRequest="515"
+                Margin="0"
+				Text="{Binding OutText}"/>                
+                <Button Grid.Column="1" Grid.Row="0"
+				Text="Enviar" 
+				Command="{Binding SendCommand}"/>                
+            </Grid>
+        </RelativeLayout>
+    <!--<ScrollView>
+        <Grid RowSpacing="0" ColumnSpacing="0" >
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto" />
+            </Grid.RowDefinitions>
+
+            --><!--<Label    Text="CONTRASEÑA:" TextColor="Black" FontAttributes="Bold"></Label>--><!--
+            <StackLayout Grid.Row="0">
+                <ListView 
+            x:Name="MessagesListView" 
+            ItemTemplate="{StaticResource MessageTemplateSelector}" 
+            ItemsSource="{Binding ListMessages}" 
+            HasUnevenRows="True" SeparatorVisibility="None" IsEnabled="True">
+                
+            </ListView>
+            </StackLayout>
+
+            <StackLayout Orientation="Horizontal" Grid.Row="1" Padding="5" BackgroundColor="White">
+
+                <Entry 
+			    HorizontalOptions="FillAndExpand" 
+				HeightRequest="25" 
+				Placeholder="Escribe tu meensaje" 
+				Text="{Binding OutText}"/>
+                <Button 
+				Text="Enviar" 
+				Command="{Binding SendCommand}"/>
+                --><!--<Entry 
+                HorizontalOptions="FillAndExpand"  
+                Placeholder="Mensaje"  
+                Text="{Binding OutText}" Keyboard="Chat" Margin="4"/>
+
+                <Image Source="sendButton.png" WidthRequest="40" HeightRequest="40" Margin="4">
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer
+                                Command="{Binding SendCommand}" />
+                    </Image.GestureRecognizers>
+                </Image>--><!--
+
+            </StackLayout>
+
+        </Grid>
+    </ScrollView>-->
+</ContentPage>

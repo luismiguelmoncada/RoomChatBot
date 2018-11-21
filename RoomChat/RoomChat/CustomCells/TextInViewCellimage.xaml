@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomChat.CustomCells.TextInViewCellimage">
+
+    <Frame BackgroundColor="#CEE3F6" Padding="5" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
+        <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
+            <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#0535f0" Padding="4" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="CenterAndExpand">
+                <Label Text="{Binding Text}" TextColor="White" VerticalOptions="StartAndExpand" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center"></Label>
+            </Frame>
+            <Label  Text="{Binding Description}" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+            <Image Source="{Binding Source}" HeightRequest="140"/>
+            <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
+               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
+        </StackLayout>
+    </Frame>
+    
+    
+    <!--<Grid ColumnSpacing="2" Padding="3">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2"></ColumnDefinition>
+            <ColumnDefinition Width="Auto"></ColumnDefinition>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"></RowDefinition>
+            <RowDefinition Height="Auto"></RowDefinition>
+        </Grid.RowDefinitions>
+
+        <Frame Grid.Row="0" Grid.Column="1" Padding="1" BackgroundColor="Red" CornerRadius="15">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+            </Frame.HasShadow>
+            <StackLayout>
+                <Label TextColor="White" Text="{Binding Text}" />
+                <Image
+                                    Source="{Binding Source}"
+                                    VerticalOptions="Center"
+                                    HorizontalOptions="Center"
+                                    WidthRequest="100"
+                                    HeightRequest="100">
+                </Image>
+            </StackLayout>
+            
+        </Frame>
+
+        <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
+               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
+    </Grid>-->
+</ViewCell>

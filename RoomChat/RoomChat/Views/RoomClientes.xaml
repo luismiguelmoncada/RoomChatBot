@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="RoomChat.Views.RoomClientes"
+             Title="ROOM CHAT">   
+      
+        <StackLayout>
+
+        <ListView  ItemsSource="{Binding ListClientes}" RowHeight="40">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Vertical" Padding="8,0,8,0">
+                            <Button Text="{Binding Nombre}" Command="{Binding ConnectBootCommand}" CommandParameter="{Binding IdBoot}"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+        <Label Text="Welcome to Xamarin.Forms!"
+                VerticalOptions="CenterAndExpand" 
+                HorizontalOptions="CenterAndExpand" />
+            <Button Grid.Column="1" Grid.Row="0"
+				Text="Enviar" 
+				Command="{Binding ConnectBootCommand}"  CommandParameter="luisss"/>
+        </StackLayout>
+</ContentPage>

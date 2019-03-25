@@ -1,17 +1,34 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoomChat.CustomCells.TextInViewCellimage">
 
-    <Frame BackgroundColor="#CEE3F6" Padding="5" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
+    <Frame BackgroundColor="#fce4ec" Padding="5" Margin="4,2,4,2" IsClippedToBounds="False" VerticalOptions="Start" CornerRadius="15" HorizontalOptions="FillAndExpand">
         <StackLayout VerticalOptions="Start" HorizontalOptions="Center">
-            <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#0535f0" Padding="4" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="CenterAndExpand">
+            <Frame Grid.Row="1" Grid.Column="2" BackgroundColor="#E91E63" Padding="4" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="CenterAndExpand">
                 <Label Text="{Binding Text}" TextColor="White" VerticalOptions="StartAndExpand" FontAttributes="Bold" HorizontalOptions="Center" VerticalTextAlignment="Center"></Label>
             </Frame>
-            <Label  Text="{Binding Description}" HorizontalOptions="Center" VerticalTextAlignment="Center"/>
+            <Label  Text="{Binding Description}"
+                    HorizontalOptions="Center" 
+                    VerticalTextAlignment="Center"
+                    TextColor="#E91E63"/>
             <Image Source="{Binding Source}" HeightRequest="140"/>
-            <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
-               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
+            
+            <Frame BackgroundColor="#00bcd4" 
+             Padding="2" 
+             IsClippedToBounds="False"  
+             HasShadow="True" 
+             VerticalOptions="Center" 
+             CornerRadius="5" 
+             HorizontalOptions="Start">
+            <Label FontSize="Micro"
+                   Grid.Row="1" 
+                   Grid.Column="1" 
+                   Text="{Binding MessageDateTime}"
+                   TextColor="White">
+            </Label>
+            </Frame>
+            
         </StackLayout>
     </Frame>
     

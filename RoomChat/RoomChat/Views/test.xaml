@@ -1,43 +1,49 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoomChat.Views.test">
-
-
-    <RelativeLayout>
-        <ListView  x:Name="MessagesListView" 
-               
-                HasUnevenRows="True" 
-                SeparatorVisibility="None" 
-                IsEnabled="True"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToParent,Property=Height,Factor=.92,Constant=0}">
-        </ListView>
-        <Grid  x:Name="MessageControls" Padding="0"
-                BackgroundColor="#EFEFF4"
-                VerticalOptions="FillAndExpand"
-                HorizontalOptions="FillAndExpand"
-                RelativeLayout.YConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=1,Constant=0}"
-                RelativeLayout.WidthConstraint="{ConstraintExpression Type=RelativeToParent,Property=Width,Factor=1,Constant=0}"
-                RelativeLayout.HeightConstraint="{ConstraintExpression Type=RelativeToView, ElementName=MessagesListView, Property=Height,Factor=.09,Constant=0}">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto"></RowDefinition>
-            </Grid.RowDefinitions>
-            <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="3*"></ColumnDefinition>
-                <ColumnDefinition Width="*"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-            <Entry Grid.Column="0" Grid.Row="0"
-			    HorizontalOptions="FillAndExpand" 
-				Placeholder="Escribe tu mensaje" 
-                MinimumHeightRequest="515"
-                Margin="0"
-				Text="{Binding OutText}"/>
-            <Button Grid.Column="1" Grid.Row="0"
-				Text="Enviar" 
-				Command="{Binding SendCommand}"/>
-        </Grid>
-    </RelativeLayout>
+    
+     <Frame Padding="7" BackgroundColor="White" CornerRadius="10">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
+            </Frame.HasShadow>
+        
+    <StackLayout BackgroundColor="Gray">
+        
+            <Label Text="sss"
+                   HorizontalTextAlignment="Center"
+                   TextColor="#0535f0"/>
+            <Label Text="sadsdasd" />
+            
+        
+            <Button Text="SI"
+                    Command="{Binding SendCommandOption}" 
+                    CommandParameter="{Binding optionaux}"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    BorderRadius="10"
+                    Font="10"
+                    BorderColor="#0535f0"
+                    BorderWidth="2"
+                    TextColor="Black"/>
+            
+             <Button Text="No"
+                    Command="{Binding SendCommandOption}" 
+                    CommandParameter="{Binding optionaux}"
+                    BackgroundColor="White"
+                    HorizontalOptions="Center"
+                    VerticalOptions="Start"
+                    BorderRadius="10"
+                    BorderColor="#0535f0"
+                    BorderWidth="2"
+                    TextColor="Black"/>
+             
+    </StackLayout>
+   
+                   
+          </Frame>
+    
 
     <!--<Grid ColumnSpacing="2" Padding="3">
         <Grid.ColumnDefinitions>

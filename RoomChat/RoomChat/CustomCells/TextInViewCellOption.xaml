@@ -1,19 +1,44 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoomChat.CustomCells.TextInViewCellOption">
   <ViewCell.View>
+        <Frame  Padding="5"
+                Margin="4,2,4,2" 
+                IsClippedToBounds="False"   
+                BorderColor="#E91E63"
+                BackgroundColor="White"
+                CornerRadius="10">
+            <Frame.HasShadow>
+                <OnPlatform x:TypeArguments="x:Boolean" 
+                            iOS="false" 
+                            Android="true"/>
+            </Frame.HasShadow>
       <StackLayout>
-            <Label Text="{Binding Text}" />
-            <Label Text="{Binding Description}" />
-
-            <ListView  ItemsSource="{Binding Options}" RowHeight="40">
+            <Label Text="{Binding Text}" 
+                   HorizontalTextAlignment="Center"
+                   TextColor="#E91E63"
+                   FontAttributes="Bold"
+                   LineBreakMode="TailTruncation"/>
+            <Label TextColor="#E91E63"
+                   Text="{Binding Description}" />
+                
+            <ListView ItemsSource="{Binding Options}" 
+                      RowHeight="40"
+                      Margin="3">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
-                            <StackLayout Orientation="Vertical" Padding="8,0,8,0">
-                                <Button Text="{Binding label}" Command="{Binding SendCommandOption}"  CommandParameter="{Binding finalvalue}"/>
-                            </StackLayout>
+                                <Button Text="{Binding label}"
+                                Command="{Binding SendCommandOption}" 
+                                CommandParameter="{Binding optionaux}"
+                                BackgroundColor="White"
+                                HorizontalOptions="Center"
+                                VerticalOptions="Start"
+                                BorderRadius="10"
+                                BorderColor="#E91E63"
+                                BorderWidth="1"
+                                TextColor="#E91E63" />
                         </ViewCell>
                     </DataTemplate>
                 </ListView.ItemTemplate>
@@ -51,10 +76,21 @@
                     </DataTemplate>
                 </ListView.ItemTemplate>
             </ListView>-->
+                
+      <Frame BackgroundColor="#00bcd4" 
+             Padding="2" 
+             IsClippedToBounds="False"  
+             HasShadow="True" 
+             VerticalOptions="Center" 
+             CornerRadius="5" 
+             HorizontalOptions="Start">
+        <Label FontSize="Micro"
+               Text="{Binding MessageDateTime}" 
+               TextColor="White"></Label>
+     </Frame>
 
-            <Label FontSize="Micro"
-               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
            
         </StackLayout>
+</Frame>
   </ViewCell.View>
 </ViewCell>

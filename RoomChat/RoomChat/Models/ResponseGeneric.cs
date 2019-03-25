@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Windows.Input;
+using Newtonsoft.Json.Linq;
 
 namespace RoomChat.Models
 {
@@ -23,6 +24,8 @@ namespace RoomChat.Models
         public Value value { get; set; }
         public ICommand SendCommandOption { get; set; }
         public string finalvalue { get; set; }
+        public JToken contextOptions { get; set; }
+        public Option optionaux { get; set; }
     }
 
     public class Value

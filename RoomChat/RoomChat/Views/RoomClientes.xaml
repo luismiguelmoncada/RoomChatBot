@@ -1,28 +1,42 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoomChat.Views.RoomClientes"
              Title="ROOM CHAT">   
-      
-        <StackLayout>
+    <ContentPage.Content>
+        <Grid Padding="40">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
 
-        <ListView  ItemsSource="{Binding ListClientes}" RowHeight="40">
+            <Image  Grid.Row="0" 
+                    Source="Icon.png" 
+                    Aspect="AspectFit"
+                    VerticalOptions="Start"
+                    HorizontalOptions="Center"/>
+           
+            <ListView  Grid.Row="1" ItemsSource="{Binding ListClientes}" 
+                  RowHeight="60"
+                  >
             <ListView.ItemTemplate>
                 <DataTemplate>
                     <ViewCell>
-                        <StackLayout Orientation="Vertical" Padding="8,0,8,0">
-                            <Button Text="{Binding Nombre}" Command="{Binding ConnectBootCommand}" CommandParameter="{Binding IdBoot}"/>
+                        <StackLayout Orientation="Vertical" Padding="5">
+                            <Button Text="{Binding Nombre}"
+                                    Command="{Binding ConnectBootCommand}" 
+                                    CommandParameter="{Binding IdBoot}"
+                                    BackgroundColor="#00BCD4" 
+                                    BorderRadius="20" 
+                                    FontAttributes="Bold" 
+                                    TextColor="White"/>
                         </StackLayout>
                     </ViewCell>
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
-
-        <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-            <Button Grid.Column="1" Grid.Row="0"
-				Text="Enviar" 
-				Command="{Binding ConnectBootCommand}"  CommandParameter="luisss"/>
-        </StackLayout>
+                         
+        </Grid>
+    </ContentPage.Content>
 </ContentPage>
+ 

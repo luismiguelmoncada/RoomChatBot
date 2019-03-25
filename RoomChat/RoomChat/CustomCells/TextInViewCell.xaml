@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>
 <ViewCell xmlns="http://xamarin.com/schemas/2014/forms" 
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="RoomChat.CustomCells.TextInViewCell">
@@ -13,7 +13,7 @@
             <RowDefinition Height="Auto"></RowDefinition>
         </Grid.RowDefinitions>
 
-        <Frame Grid.Row="0" Grid.Column="1" Padding="7" BackgroundColor="#0535f0" CornerRadius="10">
+        <Frame Grid.Row="0" Grid.Column="1" Padding="7" BackgroundColor="#E91E63" CornerRadius="10">
             <Frame.HasShadow>
                 <OnPlatform x:TypeArguments="x:Boolean" iOS="false" Android="true"/>
             </Frame.HasShadow>
@@ -21,8 +21,11 @@
                 <Label TextColor="White" Text="{Binding Text}" />
             </StackLayout>
         </Frame>
-
-        <Label FontSize="Micro" Grid.Row="1" Grid.Column="1" 
-               Text="{Binding MessageDateTime}" TextColor="Gray"></Label>
+        
+         <Frame Grid.Row="1" Grid.Column="1" BackgroundColor="#00bcd4" Padding="2" IsClippedToBounds="False"  HasShadow="True" VerticalOptions="Center" CornerRadius="5" HorizontalOptions="Start">
+                <Label FontSize="Micro"  
+               Text="{Binding MessageDateTime}" TextColor="White"></Label>
+            </Frame>
+       
     </Grid>
 </ViewCell>

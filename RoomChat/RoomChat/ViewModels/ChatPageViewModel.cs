@@ -105,11 +105,14 @@ namespace RoomChat.ViewModels
             });
 
 
-            SendCommandOption = new Command((parametro) =>
+            SendCommandOption = new Command(( parametro ) =>
             {
+                //page.DisplayAlert(Constantes.HeaderAlert,"parametro:  " + parametro.ToString(), "Aceptar");
+                Option option = new Option();
+                option = (RoomChat.Models.Option)parametro;
                 var messageOptions = new Message
                 {
-                    Text = parametro.ToString(),
+                    Text = option.label.ToString(),
                     IsTextIn = false,
                     MessageDateTime = DateTime.Now
                 };
@@ -120,9 +123,9 @@ namespace RoomChat.ViewModels
                 {
                     Input = new InputData()
                     {
-                        Text = parametro.ToString()
+                        Text = option.finalvalue.ToString()
                     },
-                    Context = context
+                    Context = option.contextOptions
                 };                               
                 sendMessageBot(messageRequestOptions);
             });
@@ -192,7 +195,10 @@ namespace RoomChat.ViewModels
                         optionsClic.label = items.label;
                         optionsClic.finalvalue = items.value.input.text;
                         optionsClic.SendCommandOption = SendCommandOption;
+                        optionsClic.contextOptions = context;
+                        optionsClic.optionaux = optionsClic;
                         availableOptions.Add(optionsClic);
+
                     }
                     //options = itemrespuesta.options;
                     var messageTypeOption = new Message

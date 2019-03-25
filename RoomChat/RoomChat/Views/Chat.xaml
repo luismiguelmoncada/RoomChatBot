@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:RoomChat.CustomCells"
@@ -33,14 +33,18 @@
                     <ColumnDefinition Width="*"></ColumnDefinition>
                 </Grid.ColumnDefinitions>
                     <Entry Grid.Column="0" Grid.Row="0"
-			    HorizontalOptions="FillAndExpand" 
-				Placeholder="Escribe tu meensaje" 
-                MinimumHeightRequest="515"
-                Margin="0"
-				Text="{Binding OutText}"/>                
-                <Button Grid.Column="1" Grid.Row="0"
-				Text="Enviar" 
-				Command="{Binding SendCommand}"/>                
+        			    HorizontalOptions="FillAndExpand" 
+        				Placeholder="Escribe tu mensaje" 
+                        MinimumHeightRequest="515"
+                        Margin="0"
+        				Text="{Binding OutText}"/>                
+                    <Button Grid.Column="1" 
+                        Grid.Row="0"
+        				Text="Enviar"
+                        TextColor="White"
+                        BackgroundColor="#E91E63" 
+                        BorderRadius="10"
+        				Command="{Binding SendCommand}"/>                
             </Grid>
         </RelativeLayout>
     <!--<ScrollView>

@@ -18,40 +18,41 @@ namespace RoomChat.ViewModels
         public ObservableRangeCollection<Cliente> ListClientes { get; }
         public ICommand ConnectBootCommand { get; set; }
         private Page page;
+        bool _loaderBot_IsVisible = false;
+        public bool LoaderBot_IsVisible
+        {
+            get => _loaderBot_IsVisible;
+            set => SetProperty(ref _loaderBot_IsVisible, value);
+        }
 
         public RoomClientesViewModel(Page page, List<Cliente> clientes)
         {
             this.page = page;
             ListClientes = new ObservableRangeCollection<Cliente>();
-            
-            ConnectBootCommand = new Command(async (IdBoot) =>
+
+            ConnectBootCommand = new Command( async (clientaux) =>
             {
-                foreach (Cliente c in clientes)
-                {
-                    if (c.IdBoot == IdBoot.ToString()) {
-                        if (c.WatsonApi.Length > 0 && c.WatsonBoot.Length > 0) {
-                            var action = await page.DisplayAlert(Constantes.HeaderAlert, string.Format("Hola soy {0}, estoy aqui para ayudarte. Bienvenid@", c.Nombre), "INICIAR","CANCELAR");
-                            if (action)
-                            {
-                                string ApiKey = c.WatsonApi;
-                                string Boot = c.WatsonBoot;
-                                await page.Navigation.PushAsync(new Chat(ApiKey, Boot, c.Nombre));
-                            }                          
-                        }                       
-                    }                   
-                }                
+                Cliente cliente = new Cliente();
+                cliente = (Cliente)clientaux;
+                LoaderBot_IsVisible = true;
+                await Task.Delay(3000);
+                await page.Navigation.PushAsync(new Chat(cliente.WatsonApi, cliente.WatsonBoot, cliente.Nombre));
+                LoaderBot_IsVisible = false;
+                return;
             });
-            
+
             foreach (Cliente cliente in clientes)
             {
-                var cli = new Cliente
-                {
-                    Nombre = cliente.Nombre,
-                    IdBoot = cliente.IdBoot,
-                    ConnectBootCommand = ConnectBootCommand,
-                };
+                var cli = new Cliente();
+                cli.Nombre = cliente.Nombre;
+                cli.IdBoot = cliente.IdBoot;
+                cli.WatsonApi = cliente.WatsonApi;
+                cli.WatsonBoot = cliente.WatsonBoot;
+                cli.ConnectBootCommand = ConnectBootCommand;
+                cli.clientaux = cli;
                 ListClientes.Add(cli);
             }
+
         }
     }
 }

@@ -13,7 +13,7 @@
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
 
-            <Image Source="logo_2.png" Aspect="AspectFit"/>
+            <Image Source="logo.png" Aspect="AspectFit"/>
 
             <Button Grid.Row="1" x:Name="btniniciarchat" Text="Buscar Salas"  BackgroundColor="#E91E63" BorderRadius="20" FontAttributes="Bold" TextColor="White"/>
 
@@ -23,7 +23,7 @@
 
 
             <forms:AnimationView x:Name="animationView_Loader" Grid.Row="4" IsVisible="False"
-                         Animation="splashy_loader.json"
+                         Animation="loader_colors.json"
                          Loop="True"
                          AutoPlay="True"
                          VerticalOptions="FillAndExpand"

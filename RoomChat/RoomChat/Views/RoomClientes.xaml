@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:forms="clr-namespace:Lottie.Forms;assembly=Lottie.Forms"
              x:Class="RoomChat.Views.RoomClientes"
              Title="ROOM CHAT">   
     <ContentPage.Content>
         <Grid Padding="40">
             <Grid.RowDefinitions>
+                <RowDefinition Height="*"/>
                 <RowDefinition Height="*"/>
                 <RowDefinition Height="Auto"/>
             </Grid.RowDefinitions>
@@ -15,8 +17,15 @@
                     Aspect="AspectFit"
                     VerticalOptions="Start"
                     HorizontalOptions="Center"/>
+            
+             <forms:AnimationView Grid.Row="1" IsVisible="{Binding LoaderBot_IsVisible}"
+                         Animation="loader_horizontal.json"
+                         Loop="True"
+                         AutoPlay="True"
+                         VerticalOptions="FillAndExpand"
+                         HorizontalOptions="FillAndExpand" />
            
-            <ListView  Grid.Row="1" ItemsSource="{Binding ListClientes}" 
+            <ListView  Grid.Row="2" ItemsSource="{Binding ListClientes}" 
                   RowHeight="60"
                   >
             <ListView.ItemTemplate>
@@ -25,7 +34,7 @@
                         <StackLayout Orientation="Vertical" Padding="5">
                             <Button Text="{Binding Nombre}"
                                     Command="{Binding ConnectBootCommand}" 
-                                    CommandParameter="{Binding IdBoot}"
+                                    CommandParameter="{Binding clientaux}"
                                     BackgroundColor="#00BCD4" 
                                     BorderRadius="20" 
                                     FontAttributes="Bold" 
@@ -35,6 +44,11 @@
                 </DataTemplate>
             </ListView.ItemTemplate>
         </ListView>
+            
+            
+
+   
+            
                          
         </Grid>
     </ContentPage.Content>

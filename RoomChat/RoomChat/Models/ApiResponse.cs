@@ -28,6 +28,7 @@ namespace RoomChat.Models
         public string WatsonApi { get; set; }
         public string WatsonBoot { get; set; }
         public ICommand ConnectBootCommand { get; set; }
+        public Cliente clientaux { get; set; }
     }
 
     
